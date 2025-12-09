@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="create.title">Skapa Sida | Minsida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="language-switcher.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body class="builder-body">
+    <div class="page-shell">
+      <header class="dashboard-header">
+        <a href="index.html" class="logo" data-i18n="create.logo">minsida</a>
+        <div class="nav-links">
+          <a href="#" data-i18n="create.guide">Guide</a>
+          <a href="#" data-i18n="create.support">Support</a>
+          
+        </div>
+      </header>
+
+      <section class="hero-card">
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow" data-i18n="create.step1">Steg 1 · Skapa produktlista</p>
+            <h1 data-i18n="create.heroTitle">Bygg din shoppable lista</h1>
+            <p data-i18n="create.heroDescription">
+              Ge din haul ett namn, välj en länk och lägg till produkter. Vi
+              skapar automatiskt en sida som känns som din varumärkesförlängning.
+            </p>
+            <div class="hero-actions">
+              <button class="accent-btn" data-i18n="create.saveDraft">Spara utkast</button>
+              <button class="ghost-btn secondary" data-i18n="create.preview">Förhandsgranska</button>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <main class="builder-grid">
+        <section class="builder-main">
+          <article class="card">
+            <div class="card-header">
+              <p class="eyebrow" data-i18n="create.section1Title">1. Sidinformation</p>
+              <h2 class="card-title" data-i18n="create.section1Heading">Gör sidan personlig och tydlig</h2>
+              <p class="card-description" data-i18n="create.section1Description">
+                Titeln visas högst upp på din publik-sida och slugen blir den länk
+                du delar i bio.
+              </p>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-control">
+                <label for="title">
+                  <span data-i18n="create.videoTitleLabel">Titel på video/samling</span>
+                  <small data-i18n="create.videoTitleTip">Tips: håll det kort & sökbart</small>
+                </label>
+                <input
+                  type="text"
+                  id="title"
+                  data-i18n-placeholder="create.videoTitlePlaceholder"
+                  placeholder="Ex: Glow Getter Routine"
+                  value="Vår Skincare Rutin 2025"
+                />
+              </div>
+
+              <div class="form-control">
+                <label for="slug">
+                  <span data-i18n="create.slugLabel">Anpassad länk (slug)</span>
+                  <small data-i18n="create.slugTip">Följarna ser den här i länken</small>
+                </label>
+                <div class="url-input-group">
+                  <span class="url-prefix">minsida.se/anna_bl/</span>
+                  <input
+                    type="text"
+                    id="slug"
+                    data-i18n-placeholder="create.slugPlaceholder"
+                    placeholder="skincarerutin"
+                    value="skincarerutin"
+                  />
+                </div>
+              </div>
+
+              <div class="form-control">
+                <label for="thumbnail">
+                  <span data-i18n="create.thumbnailLabel">Miniatyrbild (valfritt)</span>
+                  <small data-i18n="create.thumbnailTip">Square JPG/PNG funkar bäst</small>
+                </label>
+                <input type="file" id="thumbnail" />
+              </div>
+
+              <div class="form-control">
+                <label for="video-url">
+                  <span data-i18n="create.videoUrlLabel">Video-URL (valfritt)</span>
+                  <small data-i18n="create.videoUrlTip">YouTube, TikTok, eller annan videoplattform</small>
+                </label>
+                <input
+                  type="url"
+                  id="video-url"
+                  data-i18n-placeholder="create.videoUrlPlaceholder"
+                  placeholder="https://www.youtube.com/watch?v=... eller https://www.tiktok.com/@..."
+                />
+              </div>
+
+              <div class="form-control">
+                <label for="description">
+                  <span data-i18n="create.descriptionLabel">Beskrivning</span>
+                  <small data-i18n="create.descriptionTip">Max 10 ord</small>
+                </label>
+                <input
+                  type="text"
+                  id="description"
+                  data-i18n-placeholder="create.descriptionPlaceholder"
+                  placeholder="Ex: Alla mina favoriter från vinterkollektionen"
+                  maxlength="100"
+                  oninput="validateWordCount(this)"
+                />
+                <span class="word-count" id="word-count" data-i18n="create.wordCount">0 / 10 ord</span>
+              </div>
+
+              <div class="floating-helper" data-i18n="create.helperTip">
+                💡 Ett bra namn ger fler klick. "3 produkter som räddade mitt hår"
+                slår "Ny video".
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <p class="eyebrow" data-i18n="create.section2Title">2. Produkter</p>
+              <h2 class="card-title" data-i18n="create.section2Heading">Samla allt som nämns i videon</h2>
+              <p class="card-description" data-i18n="create.section2Description">
+                Lägg in länk till produkten för så kommer du automatiskt få fram titel och bild. Annars kan du manuellt lägga in det.
+                
+              </p>
+            </div>
+
+            <div class="product-builder">
+                <div class="product-row">
+                    <div class="product-thumb" onclick="document.getElementById('product-image-1').click()">
+                      <input 
+                        type="file" 
+                        id="product-image-1" 
+                        accept="image/*" 
+                        style="display: none;"
+                        onchange="handleImageUpload(this, this.closest('.product-thumb').querySelector('.product-image'))"
+                      />
+                      <img class="product-image"
+                        src="https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
+                        alt="Produktbild"
+                      />
+                      <div class="upload-overlay">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="17 8 12 3 7 8"></polyline>
+                          <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <span data-i18n="create.clickToUpload">Klicka för att ladda upp</span>
+                      </div>
+                    </div>
+                  
+                    <div class="product-meta">
+                      <label class="form-control">
+                        <span data-i18n="create.productName">Produktnamn</span>
+                        <input
+                          type="text"
+                          class="product-name"
+                          data-i18n-placeholder="create.productNamePlaceholder"
+                          placeholder="Produktnamn (Ex: MAC Matte Lipstick)"
+                        />
+                      </label>
+                  
+                      <label class="form-control">
+                        <span data-i18n="create.affiliateLink">Affiliate-länk</span>
+                        <input
+                          type="url"
+                          class="product-url"
+                          data-i18n-placeholder="create.affiliateLinkPlaceholder"
+                          placeholder="https://ditt-affiliate-nätverk.se/produkt"
+                          onblur="fetchOgImage(this)"
+                        />
+                      </label>
+                  
+                      <label class="form-control">
+                        <span data-i18n="create.productDescription">Beskrivning (valfritt)</span>
+                        <input
+                          type="text"
+                          class="product-description"
+                          data-i18n-placeholder="create.productDescriptionPlaceholder"
+                          placeholder="Ex: Använd bara en gång i veckan!"
+                          maxlength="150"
+                        />
+                      </label>
+                  
+                      <div class="product-actions">
+                        
+                      </div>
+                    </div>
+                  
+                    <button class="ghost-icon-btn" aria-label="Ta bort produkt" data-i18n-title="create.removeProduct" title="Ta bort produkt">✕</button>
+                  </div>
+                  <div class="product-row">
+                    <div class="product-thumb" onclick="document.getElementById('product-image-2').click()">
+                      <input 
+                        type="file" 
+                        id="product-image-2" 
+                        accept="image/*" 
+                        style="display: none;"
+                        onchange="handleImageUpload(this, this.closest('.product-thumb').querySelector('.product-image'))"
+                      />
+                      <img class="product-image"
+                        src="https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
+                        alt="Produktbild"
+                      />
+                      <div class="upload-overlay">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="17 8 12 3 7 8"></polyline>
+                          <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <span data-i18n="create.clickToUpload">Klicka för att ladda upp</span>
+                      </div>
+                    </div>
+                  
+                    <div class="product-meta">
+                      <label class="form-control">
+                        <span>Produktnamn</span>
+                        <input
+                          type="text"
+                          class="product-name"
+                          placeholder="Produktnamn (Ex: MAC Matte Lipstick)"
+                        />
+                      </label>
+                  
+                      <label class="form-control">
+                        <span>Affiliate-länk</span>
+                        <input
+                          type="url"
+                          class="product-url"
+                          placeholder="https://ditt-affiliate-nätverk.se/produkt"
+                          onblur="fetchOgImage(this)" 
+                        />
+                      </label>
+                  
+                      <label class="form-control">
+                        <span>Beskrivning (valfritt)</span>
+                        <input
+                          type="text"
+                          class="product-description"
+                          placeholder="Ex: Använd bara en gång i veckan!"
+                          maxlength="150"
+                        />
+                      </label>
+                  
+                      <div class="product-actions">
+                        
+                      </div>
+                    </div>
+                  
+                    <button class="ghost-icon-btn" aria-label="Ta bort produkt" data-i18n-title="create.removeProduct" title="Ta bort produkt">✕</button>
+                  </div>
+              <button class="outline-btn" style="align-self: flex-start" data-i18n="create.addProduct">
+                + Lägg till en ny produkt
+              </button>
+            </div>
+          </article>
+
+          <section class="card cta-stack">
+            <h2 class="card-title" data-i18n="create.readyToPublish">Redo att publicera?</h2>
+            <p data-i18n="create.saveDraftDescription">Vi sparar allt som utkast så du kan fortsätta senare.</p>
+            
+            <button class="ghost-btn" data-i18n="create.saveDraft">Spara utkast</button><button
+            class="primary-cta-btn"
+            onclick="publishList()"
+            data-i18n="create.publish"
+          >
+           Publicera
+          </button>
+          </section>
+        </section>
+
+        <aside class="builder-side">
+          <div class="helper-card">
+            <div class="helper-card-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"></path>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+              <h3 data-i18n="create.checklistTitle">Snabb checklista</h3>
+            </div>
+            <ul class="helper-checklist">
+              <li>
+                <span class="check-icon">✓</span>
+                <span data-i18n="create.checklist1">Minst 3 produkter ger bättre konvertering</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span data-i18n="create.checklist2">Lägg viktigaste produkten först</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span data-i18n="create.checklist3">Kontrollera länkar innan du publicerar</span>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="page-footer">
+        <p data-i18n="common.footer">Minsida.se © 2025 · Alla länkar kan innehålla affiliate-taggar.</p>
+      </footer>
+    </div>
+  </body>
+</html>
