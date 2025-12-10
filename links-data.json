@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1",
+    "title": {
+      "sv": "My Linkoria",
+      "en": "My Linkoria"
+    },
+    "description": {
+      "sv": "Hitta mina hauls, kuponger mm",
+      "en": "Check my hauls, coupons etc"
+    },
+    "url": "https://linkoria.live/",
+    "external": true,
+    "icon": "blog"
+  },
+  {
+    "id": "2",
+    "title": {
+      "sv": "Min senaste video",
+      "en": "My latest video"
+    },
+    "description": {
+      "sv": "Kolla in min senaste makeup tutorial",
+      "en": "Check out my latest makeup tutorial"
+    },
+    "url": "https://www.youtube.com/watch?v=9dmVmlVg5G0",
+    "external": true,
+    "icon": "video"
+  },
+  {
+    "id": "3",
+    "title": {
+      "sv": "My Amazon Storefront",
+      "en": "My Amazon Storefront"
+    },
+    "description": {
+      "sv": "Alla produkter från min senaste haul",
+      "en": "All products from my latest haul"
+    },
+    "url": "https://www.amazon.com/shop/anna_beautylife",
+    "external": true,
+    "icon": "shopping"
+  },
+  {
+    "id": "4",
+    "title": {
+      "sv": "Boka konsultation",
+      "en": "Book consultation"
+    },
+    "description": {
+      "sv": "Boka en personlig makeup-konsultation",
+      "en": "Book a personal makeup consultation"
+    },
+    "url": "https://calendly.com/anna",
+    "external": true,
+    "icon": "calendar"
+  },
+  {
+    "id": "5",
+    "title": {
+      "sv": "Min webshop",
+      "en": "My webshop"
+    },
+    "url": "https://shop.example.com",
+    "external": true,
+    "icon": "store"
+  }
+]
