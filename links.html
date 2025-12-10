@@ -63,6 +63,48 @@
           
         </div>
 
+        <div class="coupons-section">
+          <h2 class="coupons-section-title" data-i18n="index.couponsTitle">Rabatter</h2>
+          <div class="coupons-container">
+            <div class="coupon-pill" data-coupon-code="ANNA25">
+              <div class="coupon-content">
+                <div class="coupon-col-left">
+                  <span class="coupon-store" data-i18n="index.coupon1Store">Amazon</span>
+                  <span class="coupon-discount" data-i18n="index.coupon1Discount">25%</span>
+                </div>
+                <div class="coupon-col-right">
+                  <span class="coupon-code" data-i18n="index.coupon1Code">ANNA25</span>
+                  <span class="coupon-expiry" data-i18n="index.coupon1Expiry">Giltigt till 25/12</span>
+                </div>
+              </div>
+            </div>
+            <div class="coupon-pill" data-coupon-code="BEAUTY30">
+              <div class="coupon-content">
+                <div class="coupon-col-left">
+                  <span class="coupon-store" data-i18n="index.coupon2Store">Sephora</span>
+                  <span class="coupon-discount" data-i18n="index.coupon2Discount">30%</span>
+                </div>
+                <div class="coupon-col-right">
+                  <span class="coupon-code" data-i18n="index.coupon2Code">BEAUTY30</span>
+                  <span class="coupon-expiry" data-i18n="index.coupon2Expiry">Giltigt till 31/12</span>
+                </div>
+              </div>
+            </div>
+            <div class="coupon-pill" data-coupon-code="GLOW20">
+              <div class="coupon-content">
+                <div class="coupon-col-left">
+                  <span class="coupon-store" data-i18n="index.coupon3Store">Kicks</span>
+                  <span class="coupon-discount" data-i18n="index.coupon3Discount">20%</span>
+                </div>
+                <div class="coupon-col-right">
+                  <span class="coupon-code" data-i18n="index.coupon3Code">GLOW20</span>
+                  <span class="coupon-expiry" data-i18n="index.coupon3Expiry">Giltigt till 20/12</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="links-container" id="links-container">
           <!-- Links will be dynamically loaded here -->
         </div>
@@ -194,9 +236,43 @@
         loadLinks();
       });
 
+      // Copy coupon code to clipboard
+      function copyCouponCode(couponCode) {
+        navigator.clipboard.writeText(couponCode).then(() => {
+          // Show visual feedback
+          const couponPill = document.querySelector(`[data-coupon-code="${couponCode}"]`);
+          if (couponPill) {
+            const originalContent = couponPill.innerHTML;
+            couponPill.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+              couponPill.style.transform = '';
+            }, 150);
+          }
+        }).catch(err => {
+          console.error('Failed to copy coupon code:', err);
+          // Fallback for older browsers
+          const textarea = document.createElement('textarea');
+          textarea.value = couponCode;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+        });
+      }
+
       // Load links on page load
       document.addEventListener('DOMContentLoaded', function() {
         loadLinks();
+        
+        // Add click event listeners to coupon pills
+        document.querySelectorAll('.coupon-pill').forEach(pill => {
+          pill.addEventListener('click', function() {
+            const couponCode = this.getAttribute('data-coupon-code');
+            if (couponCode) {
+              copyCouponCode(couponCode);
+            }
+          });
+        });
       });
     </script>
   </body>
