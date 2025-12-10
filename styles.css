@@ -4204,9 +4204,16 @@ body:has(.links-card) {
 
 /* Responsive styles for links page */
 @media (max-width: 768px) {
+  body:has(.links-card) .profile-shell {
+    padding: 20px 16px 60px;
+  }
+
   .links-card {
     border-radius: 24px;
     margin-top: 20px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .links-cover-image {
@@ -4214,7 +4221,7 @@ body:has(.links-card) {
   }
 
   .links-profile-content {
-    padding: 0 24px 20px;
+    padding: 0 16px 20px;
   }
 
   .links-profile-avatar {
@@ -4244,13 +4251,17 @@ body:has(.links-card) {
   }
 
   .links-card .coupons-section {
-    margin: 0 24px 24px;
+    margin: 0 16px 24px;
     padding: 16px 0;
   }
 
   .links-container {
-    padding: 0 24px 24px;
+    padding: 0 16px 24px;
     gap: 10px;
+  }
+
+  .links-socials {
+    padding: 0 16px 24px;
   }
 
   .link-item {
