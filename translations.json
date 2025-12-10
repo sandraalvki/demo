@@ -42,6 +42,9 @@
       "topProductsTitle": "Topp produkter",
       "topProductsDescription": "Topp produkter som fansen intresserat sig av"
     },
+    "links": {
+      "title": "Länkar | Minsida"
+    },
     "dashboard": {
       "title": "Dashboard | Minsida (v2)",
       "logo": "Minsida",
@@ -180,6 +183,9 @@
       "hideVideos": "Hide videos",
       "topProductsTitle": "Top products",
       "topProductsDescription": "Top products that fans are interested in"
+    },
+    "links": {
+      "title": "Links | Minsida"
     },
     "dashboard": {
       "title": "Dashboard | Minsida (v2)",
